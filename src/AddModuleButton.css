@@ -1,15 +1,14 @@
 .add-module-button {
-    background-color: #95a9d1;
+    background-color: #af95d1;
     color: white;
     font-size: 16px;
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    margin-bottom: 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .add-module-button:hover {
-    background-color: #7a8db7;
+    background-color: #a58bc7;
 }

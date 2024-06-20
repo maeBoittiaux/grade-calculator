@@ -4,7 +4,7 @@ import './AddModuleButton.css';
 function AddModuleButton({ onClick }) {
     return (
         <button className="add-module-button" onClick={onClick}>
-            + Add Module
+            + add module
         </button>
     );
 }
