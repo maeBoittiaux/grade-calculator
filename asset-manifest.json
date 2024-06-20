@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/grade-calculator/static/css/main.ca57846c.css",
-    "main.js": "/grade-calculator/static/js/main.2372a39c.js",
+    "main.css": "/grade-calculator/static/css/main.4cdbb98a.css",
+    "main.js": "/grade-calculator/static/js/main.b878a04f.js",
     "index.html": "/grade-calculator/index.html",
-    "main.ca57846c.css.map": "/grade-calculator/static/css/main.ca57846c.css.map",
-    "main.2372a39c.js.map": "/grade-calculator/static/js/main.2372a39c.js.map"
+    "main.4cdbb98a.css.map": "/grade-calculator/static/css/main.4cdbb98a.css.map",
+    "main.b878a04f.js.map": "/grade-calculator/static/js/main.b878a04f.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca57846c.css",
-    "static/js/main.2372a39c.js"
+    "static/css/main.4cdbb98a.css",
+    "static/js/main.b878a04f.js"
   ]
 }
