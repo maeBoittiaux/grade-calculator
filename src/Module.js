@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Module.css';
 
-function Module() {
+function Module({ id, updateGrade }) {
     const [courseworkGrade, setCourseworkGrade] = useState(0);
     const [courseworkWeighting, setCourseworkWeighting] = useState(0);
     const [examGrade, setExamGrade] = useState(0);
@@ -34,16 +34,17 @@ function Module() {
         const exPart = (examGrade * examWeighting) / 100;
         const final = cwPart + exPart;
         setFinalGrade(final.toFixed(2));
+        updateGrade(id, final.toFixed(2));
     };
 
     return (
         <div className="module-container">
             <div className="module-row">
                 <div className="module-input">
-                    <label htmlFor="coursework-grade">Coursework Grade :</label>
+                    <label htmlFor={`coursework-grade-${id}`}>Coursework Grade :</label>
                     <input
                         type="number"
-                        id="coursework-grade"
+                        id={`coursework-grade-${id}`}
                         name="coursework-grade"
                         value={courseworkGrade}
                         min="0"
@@ -54,10 +55,10 @@ function Module() {
                     />
                 </div>
                 <div className="module-input">
-                    <label htmlFor="coursework-weighting" className="weighting-label">Weighting :</label>
+                    <label htmlFor={`coursework-weighting-${id}`} className="weighting-label">Weighting :</label>
                     <input
                         type="number"
-                        id="coursework-weighting"
+                        id={`coursework-weighting-${id}`}
                         name="coursework-weighting"
                         value={courseworkWeighting}
                         min="0"
@@ -70,10 +71,10 @@ function Module() {
             </div>
             <div className="module-row">
                 <div className="module-input">
-                    <label htmlFor="exam-grade">Examination Grade :</label>
+                    <label htmlFor={`exam-grade-${id}`}>Examination Grade :</label>
                     <input
                         type="number"
-                        id="exam-grade"
+                        id={`exam-grade-${id}`}
                         name="exam-grade"
                         value={examGrade}
                         min="0"
@@ -84,10 +85,10 @@ function Module() {
                     />
                 </div>
                 <div className="module-input">
-                    <label htmlFor="exam-weighting" className="weighting-label">Weighting :</label>
+                    <label htmlFor={`exam-weighting-${id}`} className="weighting-label">Weighting :</label>
                     <input
                         type="number"
-                        id="exam-weighting"
+                        id={`exam-weighting-${id}`}
                         name="exam-weighting"
                         value={examWeighting}
                         min="0"
@@ -99,7 +100,7 @@ function Module() {
                 </div>
             </div>
             <div className="module-results">
-                <h3>Final Grade : {finalGrade} %</h3>
+                <h3>Module Grade : {finalGrade} %</h3>
             </div>
         </div>
     );
