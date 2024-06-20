@@ -9,8 +9,20 @@ function Module() {
     const [finalGrade, setFinalGrade] = useState(0);
 
     const handleInputChange = (setter) => (e) => {
-        const value = Math.max(0, Math.min(100, Number(e.target.value)));
+        const value = e.target.value === '' ? '' : Math.max(0, Math.min(100, Number(e.target.value)));
         setter(value);
+    };
+
+    const handleBlur = (setter) => (e) => {
+        if (e.target.value === '') {
+            setter(0);
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === '-' || e.key === 'e' || e.key === 'E') {
+            e.preventDefault();
+        }
     };
 
     useEffect(() => {
@@ -33,10 +45,12 @@ function Module() {
                         type="number"
                         id="coursework-grade"
                         name="coursework-grade"
-                        defaultValue="0"
+                        value={courseworkGrade}
                         min="0"
                         max="100"
                         onChange={handleInputChange(setCourseworkGrade)}
+                        onBlur={handleBlur(setCourseworkGrade)}
+                        onKeyDown={handleKeyDown}
                     />
                 </div>
                 <div className="module-input">
@@ -45,10 +59,12 @@ function Module() {
                         type="number"
                         id="coursework-weighting"
                         name="coursework-weighting"
-                        defaultValue="0"
+                        value={courseworkWeighting}
                         min="0"
                         max="100"
                         onChange={handleInputChange(setCourseworkWeighting)}
+                        onBlur={handleBlur(setCourseworkWeighting)}
+                        onKeyDown={handleKeyDown}
                     />
                 </div>
             </div>
@@ -59,10 +75,12 @@ function Module() {
                         type="number"
                         id="exam-grade"
                         name="exam-grade"
-                        defaultValue="0"
+                        value={examGrade}
                         min="0"
                         max="100"
                         onChange={handleInputChange(setExamGrade)}
+                        onBlur={handleBlur(setExamGrade)}
+                        onKeyDown={handleKeyDown}
                     />
                 </div>
                 <div className="module-input">
@@ -71,10 +89,12 @@ function Module() {
                         type="number"
                         id="exam-weighting"
                         name="exam-weighting"
-                        defaultValue="0"
+                        value={examWeighting}
                         min="0"
                         max="100"
                         onChange={handleInputChange(setExamWeighting)}
+                        onBlur={handleBlur(setExamWeighting)}
+                        onKeyDown={handleKeyDown}
                     />
                 </div>
             </div>
