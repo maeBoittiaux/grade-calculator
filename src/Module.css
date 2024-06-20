@@ -1,5 +1,5 @@
 .module-container {
-    background-color: #95a9d1;
+    background-color: #c7d2e9;
     border-radius: 100px;
     text-align: center;
     padding: 20px 60px;
@@ -23,7 +23,7 @@
 }
 
 .module-input label {
-    color: white;
+    color: #163f74;
     font-size: 18px;
     margin-right: 10px;
     width: 160px;
