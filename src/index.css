@@ -18,6 +18,6 @@ code {
 }
 
 ::selection {
-  background: rgba(128, 0, 128, 0.6);
+  background: rgba(128, 0, 128, 0.5);
   color: white;
 }
