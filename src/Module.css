@@ -2,11 +2,14 @@
     background-color: #c7d2e9;
     border-radius: 100px;
     text-align: center;
-    padding: 20px 60px;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     width: 580px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .module-row {
@@ -49,4 +52,9 @@
 
 .module-input .weighting-label {
     width: 90px;
+}
+
+.module-results {
+    color: white;
+    font-size: 20px;
 }
