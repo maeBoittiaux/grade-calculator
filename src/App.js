@@ -5,8 +5,8 @@ import Title from './Title';
 function App() {
   return (
     <div className="App">
+      <Title />
       <header className="App-header">
-        <Title />
       </header>
     </div>
   );
