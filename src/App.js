@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
+import Title from './Title';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Grade Calculator</h1>
+        <Title />
       </header>
     </div>
   );
