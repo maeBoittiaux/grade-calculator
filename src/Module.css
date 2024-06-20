@@ -6,6 +6,7 @@
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
+    width: 580px;
 }
 
 .module-row {
@@ -37,6 +38,13 @@
     border: none;
     font-size: 16px;
     box-sizing: border-box;
+
+    border: 2px solid rgba(128, 0, 128, 0);
+}
+
+.module-input input:focus {
+    border: 2px solid #163f74;
+    outline: none;
 }
 
 .module-input .weighting-label {
