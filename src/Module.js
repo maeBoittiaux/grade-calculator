@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Module.css';
 
-function Module({ id, updateGrade }) {
+function Module({ id, updateGrade, deleteModule }) {
     const [courseworkGrade, setCourseworkGrade] = useState(0);
     const [courseworkWeighting, setCourseworkWeighting] = useState(0);
     const [examGrade, setExamGrade] = useState(0);
@@ -106,6 +106,7 @@ function Module({ id, updateGrade }) {
             <div className="module-results">
                 <h3>Module Grade : {finalGrade} %</h3>
             </div>
+            <button className="delete-button" onClick={() => deleteModule(id)}>🗑️</button>
         </div>
     );
 }

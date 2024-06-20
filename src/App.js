@@ -19,6 +19,11 @@ function App() {
     setModules(updatedModules);
   };
 
+  const deleteModule = (id) => {
+    const updatedModules = modules.filter((module) => module.id !== id);
+    setModules(updatedModules);
+  };
+
   const calculateAverage = () => {
     const total = modules.reduce((sum, module) => sum + parseFloat(module.grade || 0), 0);
     return (total / modules.length).toFixed(2);
@@ -28,8 +33,8 @@ function App() {
     <div className="App">
       <Title />
       <AddModuleButton onClick={addModule} />
-      {modules.map((module, index) => (
-        <Module key={module.id} id={module.id} updateGrade={updateGrade} />
+      {modules.map((module) => (
+        <Module key={module.id} id={module.id} updateGrade={updateGrade} deleteModule={deleteModule} />
       ))}
       <Result average={calculateAverage()} />
     </div>
