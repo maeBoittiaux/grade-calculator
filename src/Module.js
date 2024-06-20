@@ -5,12 +5,16 @@ function Module({ id, updateGrade }) {
     const [courseworkGrade, setCourseworkGrade] = useState(0);
     const [courseworkWeighting, setCourseworkWeighting] = useState(0);
     const [examGrade, setExamGrade] = useState(0);
-    const [examWeighting, setExamWeighting] = useState(0);
+    const [examWeighting, setExamWeighting] = useState(100);
     const [finalGrade, setFinalGrade] = useState(0);
 
-    const handleInputChange = (setter) => (e) => {
+    const handleInputChange = (setter, relatedSetter) => (e) => {
         const value = e.target.value === '' ? '' : Math.max(0, Math.min(100, Number(e.target.value)));
         setter(value);
+
+        if (e.target.value !== '') {
+            relatedSetter(100 - value);
+        }
     };
 
     const handleBlur = (setter) => (e) => {
@@ -49,7 +53,7 @@ function Module({ id, updateGrade }) {
                         value={courseworkGrade}
                         min="0"
                         max="100"
-                        onChange={handleInputChange(setCourseworkGrade)}
+                        onChange={handleInputChange(setCourseworkGrade, () => { })}
                         onBlur={handleBlur(setCourseworkGrade)}
                         onKeyDown={handleKeyDown}
                     />
@@ -63,7 +67,7 @@ function Module({ id, updateGrade }) {
                         value={courseworkWeighting}
                         min="0"
                         max="100"
-                        onChange={handleInputChange(setCourseworkWeighting)}
+                        onChange={handleInputChange(setCourseworkWeighting, setExamWeighting)}
                         onBlur={handleBlur(setCourseworkWeighting)}
                         onKeyDown={handleKeyDown}
                     />
@@ -79,7 +83,7 @@ function Module({ id, updateGrade }) {
                         value={examGrade}
                         min="0"
                         max="100"
-                        onChange={handleInputChange(setExamGrade)}
+                        onChange={handleInputChange(setExamGrade, () => { })}
                         onBlur={handleBlur(setExamGrade)}
                         onKeyDown={handleKeyDown}
                     />
@@ -93,7 +97,7 @@ function Module({ id, updateGrade }) {
                         value={examWeighting}
                         min="0"
                         max="100"
-                        onChange={handleInputChange(setExamWeighting)}
+                        onChange={handleInputChange(setExamWeighting, setCourseworkWeighting)}
                         onBlur={handleBlur(setExamWeighting)}
                         onKeyDown={handleKeyDown}
                     />
