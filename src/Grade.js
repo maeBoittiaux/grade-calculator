@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import Confetti from 'react-confetti';
 import './Grade.css';
 
 function Grade({ finalGrade }) {
@@ -10,9 +12,24 @@ function Grade({ finalGrade }) {
         return "Fail :(";
     };
 
+    const gradeClassification = getGradeClassification(finalGrade);
+
+    const confettiElement = (
+        <Confetti
+            width={window.innerWidth}
+            height={window.innerHeight}
+            numberOfPieces={500}
+            gravity={0.1}
+            wind={0.01}
+            colors={['#9ab3e6', '#a682d4', '#e267bd', '#7be684', '#ffd034', '#ffffff']}
+            recycle={false}
+        />
+    );
+
     return (
         <div className="grade-container">
-            <h3>Grade Classification : {getGradeClassification(finalGrade)}</h3>
+            {gradeClassification === "1st !" && ReactDOM.createPortal(confettiElement, document.body)}
+            <h3>Grade Classification : {gradeClassification}</h3>
         </div>
     );
 }
