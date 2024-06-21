@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Title from './Title';
 import Module from './Module';
 import AddModuleButton from './AddModuleButton';
 import Result from './Result';
+import Grade from './Grade';
 
 function App() {
   const [modules, setModules] = useState([{ id: 0, grade: 0 }]);
@@ -29,6 +30,8 @@ function App() {
     return (total / modules.length).toFixed(2);
   };
 
+  const finalGrade = calculateAverage();
+
   return (
     <div className="App">
       <Title />
@@ -36,7 +39,8 @@ function App() {
       {modules.map((module) => (
         <Module key={module.id} id={module.id} updateGrade={updateGrade} deleteModule={deleteModule} />
       ))}
-      <Result average={calculateAverage()} />
+      <Result average={finalGrade} />
+      <Grade finalGrade={finalGrade} />
     </div>
   );
 }
